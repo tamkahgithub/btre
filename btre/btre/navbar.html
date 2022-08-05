@@ -1,0 +1,50 @@
+
+
+
+
+        <div class="collapse navbar-collapse"id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                <!--set condition active of the selection--> 
+                <li
+                    {% if '/' == request.oath %}
+                    class="nav-itm active mr-3"
+                    {% else %}
+                    class="nav-item mr-s"
+                    {% endif %}
+                    >
+                    <!--reflector the html based on pages-->
+                    <a class="nav=link" href="{% url 'index' %}">Home</a>
+                </li>
+                    <!-- copy from above for about-->
+                <li
+                    {% if 'about' in request.path %}
+                    class="nat-item active mr-3"
+                    {% else %}
+                    class="nav-item mr-3"
+                    {% endif %}
+                    >
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>"    
+            
+
+    </ul>
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+</div>
