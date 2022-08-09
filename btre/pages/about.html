@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{% extends 'base.html' %}
+
+
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,6 +108,8 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
+            <!-- update the index.html -->
+            <!-- index is from -->
             <a href="index.html">
               <i class="fas fa-home"></i> Home</a>
           </li>
@@ -119,7 +125,7 @@
         <div class="col-md-8">
           <h2>We Search For The Perfect Home</h2>
           <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
-          <img src="assets/img/about.jpg" alt="">
+          <img src={% static 'img/about.jpg' %} alt="" />
           <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia repudiandae ad saepe ex, amet
             neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem at quaerat
             commodi id libero eveniet harum perferendis laborum molestias quia.</p>
@@ -153,43 +159,30 @@
     <div class="container">
       <h2 class="text-center">Our Team</h2>
       <div class="row text-center">
-        <div class="col-md-4">
-          <img src="assets/img/realtors/kyle.jpg" alt="" class="rounded-circle mb-3">
-          <h4>Kyle Brown</h4>
-          <p class="text-success">
-            <i class="fas fa-award text-success mb-3"></i> Realtor</p>
-          <hr>
-          <p>
-            <i class="fas fa-phone"></i> (555)-555-5555</p>
-          <p>
-            <i class="fas fa-envelope-open"></i> kyle@btrealestate.co</p>
+         <!-- fixing from here for all realtors -->
+         {% if realtors %]
+         <!--- loop the database -->
+          {% for realtor in realtors%}
+          <div class="col-md-4">
+          <!-- update image path -->
+          <img src="{{ realtors.photo.url }}" alt="" class="rounded-circle mb-3"> />
+          <h4>{{ realtor.name}}</h4>
+          <p class="text-success">Realtor</p><hr />
+          <p><i class="fas fa-phone"></i> {{realtor.phone}}</p>
+          <p><i class="fas fa-envelope-open"></i> {{realtor.email}}</p>
         </div>
-
-        <div class="col-md-4">
-          <img src="assets/img/realtors/mark.jpg" alt="" class="rounded-circle mb-3">
-          <h4>Mark Hudson</h4>
-          <p class="text-success">Realtor</p>
-          <hr>
-          <p>
-            <i class="fas fa-phone"></i> (444)-444-4444</p>
-          <p>
-            <i class="fas fa-envelope-open"></i> mark@btrealestate.co</p>
-        </div>
-
-        <div class="col-md-4">
-          <img src="assets/img/realtors/jenny.jpg" alt="" class="rounded-circle mb-3">
-          <h4>Jenny Johnson</h4>
-          <p class="text-success">Realtor</p>
-          <hr>
-          <p>
-            <i class="fas fa-phone"></i> (333)-333-3333</p>
-          <p>
-            <i class="fas fa-envelope-open"></i> jenny@btrealestate.co</p>
+        {% endfor %}
+        <!-- no realtor -->
+        {% else %}
+        <div class="col-md-12">
+            <p>No Realtors Available</p>
         </div>
       </div>
     </div>
   </section>
 
+  {% endblock %}
+  
   <!-- Footer -->
   <footer id="main-footer" class="py-4 bg-primary text-white text-center">
     Copyright &copy;
@@ -202,3 +195,5 @@
 </body>
 
 </html>
+
+li

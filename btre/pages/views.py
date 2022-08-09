@@ -1,5 +1,7 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from django.http  import rHttpResponse
+# import dictionary for choices 
+from lkistings.choices import price_choices, state_choices
 
 # Create your views here.
 

@@ -1,7 +1,5 @@
 
 
-
-
         <div class="collapse navbar-collapse"id="navbarNavAltMarkup">
             <ul class="navbar-nav">
                 <!--set condition active of the selection--> 
@@ -15,7 +13,7 @@
                     <!--reflector the html based on pages-->
                     <a class="nav=link" href="{% url 'index' %}">Home</a>
                 </li>
-                    <!-- copy from above for about-->
+                <!-- copy from above for about-->
                 <li
                     {% if 'about' in request.path %}
                     class="nat-item active mr-3"
@@ -24,22 +22,20 @@
                     {% endif %}
                     >
                     <a class="nav-link" href="{% url 'about' %}">About</a>
-                </li>"    
-            
-
-    </ul>
-
-
-
-
-
-
-
-        
-
-
-
-
+                </li>
+                <!-- fixing the listings links and if block for highlight -->
+                <li
+                    {% if 'listings' in request.path %}
+                    class="nat-item active mr-3"
+                    {% else %}
+                    class="nav-item mr-3"
+                    {% endif %}
+                    >
+                    <a class="nav-link" href="{% url 'liostings' %}">Featured Listings</a>
+                </li>
+            </ul>
+<!-- login account related section and update the highest link -->
+          
 
 
 
@@ -47,4 +43,5 @@
 
 
 
-</div>
+
+        </div>
